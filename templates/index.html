@@ -1,4 +1,23 @@
-<h2>開合跳：<span id="jump">0</span></h2>
-<video id="video" autoplay></video>
-<button onclick="startCamera()">開始運動</button>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI燃脂闖關遊戲</title>
+</head>
+<body>
+    <h1>🔥 AI燃脂闖關遊戲</h1>
+
+    <h2>開合跳：<span id="jump">0</span></h2>
+    <h2>深蹲：<span id="squat">0</span></h2>
+    <h2>高抬腿：<span id="knee">0</span></h2>
+    <h2>平板撐：<span id="plank">0</span> 秒</h2>
+
+    <video id="video" autoplay playsinline></video>
+    <button onclick="startCamera()">開始運動</button>
+
+    <!-- Mediapipe Pose 套件 -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
