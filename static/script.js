@@ -84,4 +84,36 @@ function onResults(results) {
 
     // 平板撐：持續時間計算
     const shoulderY = (landmarks[11].y + landmarks[12].y) / 2;
-    const hipY = (landmarks
+    const hipY = (landmarks[23].y + landmarks[24].y) / 2;
+    const ankleY = (landmarks[27].y + landmarks[28].y) / 2;
+    const plankPose = Math.abs(shoulderY - hipY) < 0.05 && Math.abs(hipY - ankleY) < 0.05;
+
+    if (plankPose) {
+        if (!plankTimer) {
+            plankTimer = setInterval(() => addAction("plank"), 1000); // 每秒加一次
+        }
+    } else {
+        if (plankTimer) {
+            clearInterval(plankTimer);
+            plankTimer = null;
+        }
+    }
+}
+
+function addAction(action) {
+    fetch("/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: action })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("jump").textContent = data.counter.jump;
+        document.getElementById("squat").textContent = data.counter.squat;
+        document.getElementById("knee").textContent = data.counter.knee;
+        document.getElementById("plank").textContent = data.counter.plank;
+        document.getElementById("calories").textContent = data.calories;
+        document.getElementById("rice").textContent = data.rice;
+    });
+}
+
