@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 # 原本的計數器
-counter = {”jump“: 0, ”squat“: 0, ”knee“: 0, ”plank“: 0}
+counter = {"jump": 0,"squat": 0, "knee": 0,"plank": 0}
 
 # 每個動作的卡路里消耗 (簡單估算)
 calories_per_action = {
