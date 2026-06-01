@@ -30,8 +30,10 @@ async function startCamera() {
 
 function onResults(results) {
     if (!results.poseLandmarks) return;
+
     const landmarks = results.poseLandmarks;
 
+    // 簡單判斷範例：
     // 開合跳：手舉高 + 腳張開
     if (landmarks[15].y < 0.3 && landmarks[16].y < 0.3) {
         addAction("jump");
@@ -47,7 +49,7 @@ function onResults(results) {
         addAction("knee");
     }
 
-    // 平板撐：肩膀、臀部、腳踝在同一水平線
+    // 平板撐：身體保持水平
     const shoulderY = (landmarks[11].y + landmarks[12].y) / 2;
     const hipY = (landmarks[23].y + landmarks[24].y) / 2;
     const ankleY = (landmarks[27].y + landmarks[28].y) / 2;
