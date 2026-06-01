@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AI燃脂闖關遊戲</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>AI燃脂闖關遊戲</title>
 </head>
 <body>
 
-    <h1>🔥 AI燃脂闖關遊戲</h1>
+<h1>🔥 AI燃脂闖關遊戲</h1>
 
-    <div class="info">
-        <h2>開合跳：<span id="jump">0</span></h2>
-        <h2>深蹲：<span id="squat">0</span></h2>
-        <h2>高抬腿：<span id="knee">0</span></h2>
-        <h2>平板撐：<span id="plank">0</span> 秒</h2>
-    </div>
+<button onclick="startCamera()">
+開始運動
+</button>
 
-    <!-- 測試按鈕 -->
-    <button onclick="addAction('jump')">做一次開合跳</button>
-    <button onclick="addAction('squat')">做一次深蹲</button>
-    <button onclick="addAction('knee')">做一次高抬腿</button>
-    <button onclick="addAction('plank')">做一次平板撐</button>
+<video id="video" autoplay></video>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-</html>
-
-
-        <h2>🔥卡路里：<span id="calories">0</span></h2>
-
-        <h2>🍚白飯：<span id="rice">0</span> 碗</h2>
-    </div>
-
-    <button onclick="startCamera()">開始運動</button>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
